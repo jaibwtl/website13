@@ -1,0 +1,24 @@
+name: Notification on Slack
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: general
+          SLACK_COLOR: ${{ job.status }} # or a specific color like 'good' or '#ff00ff'
+          SLACK_ICON: https://github.com/rtCamp.png?size=48
+          SLACK_MESSAGE: 'Build done'
+          SLACK_TITLE: Title
+          SLACK_USERNAME: Bot
+          SLACK_WEBHOOK: https://hooks.slack.com/services/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
