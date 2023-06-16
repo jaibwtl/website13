@@ -19,6 +19,4 @@ jobs:
           SLACK_COLOR: good
           SLACK_ICON: https://github.com/rtCamp.png?size=48
           SLACK_MESSAGE: 'Post Content :rocket:'
-          SLACK_TITLE: Post Title
-          SLACK_USERNAME: techlanders-git
           SLACK_WEBHOOK: https://hooks.slack.com/services/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
